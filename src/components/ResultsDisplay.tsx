@@ -1,6 +1,8 @@
 
 import React from "react";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { FileExport } from "lucide-react";
 
 interface Question {
   _id?: string;
@@ -16,6 +18,19 @@ interface ResultsDisplayProps {
   jsonResult: string;
   isLoading: boolean;
 }
+
+const exportQuestionsToJson = (questions: Question[]) => {
+  const json = JSON.stringify(questions, null, 2);
+  const blob = new Blob([json], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "questions.json";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+};
 
 const ResultsDisplay: React.FC<ResultsDisplayProps> = ({
   error,
@@ -34,7 +49,19 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({
       )}
       {questions.length > 0 && (
         <div className="mb-4">
-          <h3 className="font-medium text-lg mb-2">Generated Questions</h3>
+          <div className="flex items-center justify-between mb-2">
+            <h3 className="font-medium text-lg">Generated Questions</h3>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => exportQuestionsToJson(questions)}
+              className="gap-1"
+              title="Export questions as JSON"
+            >
+              <FileExport className="w-4 h-4 mr-1" />
+              Export as JSON
+            </Button>
+          </div>
           <ul className="space-y-2">
             {questions.map((q, index) => (
               <li key={q._id || index} className="bg-white border p-3 rounded-md">
@@ -78,3 +105,4 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({
 };
 
 export default ResultsDisplay;
+
