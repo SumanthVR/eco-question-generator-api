@@ -21,7 +21,7 @@ export const generateQuestions = async (
     const framework = frameworks.find(f => f._id === frameworkId);
     
     if (!framework) {
-      throw new Error(`Selected framework not found: ${frameworkId}`);
+      throw new Error(`Framework not found: ${frameworkId}`);
     }
     
     // Get questions from the framework (first try detailedQuestions, then regular questions)
