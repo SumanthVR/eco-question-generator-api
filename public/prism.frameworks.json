@@ -1,0 +1,252 @@
+
+[
+  {
+    "_id": "GRI",
+    "name": "Global Reporting Initiative",
+    "description": "The GRI Standards are the world's most widely used standards for sustainability reporting",
+    "logoUrl": "/framework-logos/gri-logo.png",
+    "questions": [
+      {
+        "_id": "gri-question-1",
+        "question": "Does your company currently use the GRI Standards for sustainability reporting?",
+        "tags": ["reporting", "standards", "disclosure"],
+        "answerType": "YesNo"
+      }
+    ],
+    "detailedQuestions": [
+      {
+        "_id": "49223354-ca49-4ff8-b7ee-7f1fa80d4b99",
+        "category": "Organizational details",
+        "question": "Report your organization's legal name",
+        "labelGuidance": "Provide the full legal name of your organization as registered",
+        "mandatory": "M",
+        "answerType": "TextBox",
+        "tags": ["organization", "profile", "identity"]
+      },
+      {
+        "_id": "5cef9a4f-0781-481e-a559-5422e1ffcc6f",
+        "category": "Organizational details",
+        "question": "Report your organization's nature of ownership and legal form",
+        "labelGuidance": "Examples: privately owned, publicly listed, non-profit, etc.",
+        "mandatory": "M",
+        "answerType": "TextBox",
+        "tags": ["ownership", "legal", "structure"]
+      },
+      {
+        "_id": "61a553e9-34ce-453e-bfe5-fe7decf811fb",
+        "category": "Organizational details",
+        "question": "Report the location of your organization's headquarters",
+        "labelGuidance": "Provide the city and country of your headquarters",
+        "mandatory": "M",
+        "answerType": "TextBox",
+        "tags": ["location", "headquarters", "geography"]
+      },
+      {
+        "_id": "b90b54fb-b27d-47cf-9305-dd2257c1ab72",
+        "category": "Organizational details",
+        "question": "Report your organization's countries of operation",
+        "labelGuidance": "List all countries where you have significant operations",
+        "mandatory": "M",
+        "answerType": "TextBox",
+        "tags": ["countries", "operations", "global"]
+      },
+      {
+        "_id": "37a17670-8e0b-423b-9c0f-69be8d78c5f7",
+        "category": "Entities included in the organization's sustainability reporting",
+        "question": "List all entities included in your sustainability reporting",
+        "labelGuidance": "Include all subsidiaries, joint ventures, etc. covered in your reporting",
+        "mandatory": "M",
+        "answerType": "TextBox",
+        "tags": ["entities", "reporting scope", "coverage"]
+      }
+    ],
+    "questionsMenu": [
+      "Organizational details",
+      "Entities included in reporting",
+      "Reporting period and frequency",
+      "Contact information",
+      "Materiality assessment"
+    ]
+  },
+  {
+    "_id": "TCFD",
+    "name": "Task Force on Climate-Related Financial Disclosures",
+    "description": "Framework for climate-related financial risk disclosures",
+    "logoUrl": "/framework-logos/tcfd-logo.png",
+    "questions": [],
+    "detailedQuestions": [
+      {
+        "_id": "tcfd-question-1",
+        "category": "Governance",
+        "question": "Describe the board's oversight of climate-related risks and opportunities",
+        "mandatory": "M",
+        "answerType": "TextArea",
+        "tags": ["governance", "board oversight", "climate risk"]
+      },
+      {
+        "_id": "tcfd-question-2",
+        "category": "Governance",
+        "question": "Describe management's role in assessing and managing climate-related risks and opportunities",
+        "mandatory": "M",
+        "answerType": "TextArea",
+        "tags": ["governance", "management", "climate risk"]
+      },
+      {
+        "_id": "tcfd-question-3",
+        "category": "Strategy",
+        "question": "Describe the climate-related risks and opportunities the organization has identified over the short, medium, and long term",
+        "mandatory": "M",
+        "answerType": "TextArea",
+        "tags": ["strategy", "risks", "opportunities"]
+      },
+      {
+        "_id": "tcfd-question-4",
+        "category": "Strategy",
+        "question": "Describe the impact of climate-related risks and opportunities on the organization's businesses, strategy, and financial planning",
+        "mandatory": "M",
+        "answerType": "TextArea",
+        "tags": ["strategy", "impact", "financial planning"]
+      },
+      {
+        "_id": "tcfd-question-5",
+        "category": "Strategy",
+        "question": "Describe the resilience of the organization's strategy, taking into consideration different climate-related scenarios, including a 2°C or lower scenario",
+        "mandatory": "M",
+        "answerType": "TextArea",
+        "tags": ["strategy", "resilience", "scenarios"]
+      }
+    ],
+    "questionsMenu": [
+      "Board Oversight",
+      "Management's Role",
+      "Risks & Opportunities",
+      "Impact on Business & Planning",
+      "Strategy Resilience",
+      "Risk Identification",
+      "Risk Mitigation",
+      "Risk Integration",
+      "Metrics Used",
+      "GHG Emissions",
+      "Targets Set"
+    ]
+  },
+  {
+    "_id": "CSRD",
+    "name": "Corporate Sustainability Reporting Directive",
+    "description": "EU framework for corporate sustainability reporting",
+    "logoUrl": "/framework-logos/csrd-logo.png",
+    "questions": [],
+    "detailedQuestions": [
+      {
+        "_id": "csrd-question-1",
+        "category": "Environmental",
+        "question": "Describe your organization's environmental policies and actions to prevent, mitigate or remediate adverse impacts",
+        "mandatory": "M",
+        "answerType": "TextArea",
+        "tags": ["environmental", "policies", "impact mitigation"]
+      },
+      {
+        "_id": "csrd-question-2",
+        "category": "Environmental",
+        "question": "Describe your organization's targets related to environmental matters and progress against those targets",
+        "mandatory": "M",
+        "answerType": "TextArea",
+        "tags": ["environmental", "targets", "progress"]
+      },
+      {
+        "_id": "csrd-question-3",
+        "category": "Social",
+        "question": "Describe your organization's policies and actions related to social matters, including employee engagement and working conditions",
+        "mandatory": "M",
+        "answerType": "TextArea",
+        "tags": ["social", "employees", "working conditions"]
+      }
+    ],
+    "questionsMenu": [
+      "Environmental Policies",
+      "Climate Change Mitigation",
+      "Climate Change Adaptation",
+      "Resource Use",
+      "Circular Economy",
+      "Pollution",
+      "Biodiversity",
+      "Social Matters",
+      "Human Rights",
+      "Anti-corruption",
+      "Governance"
+    ]
+  },
+  {
+    "_id": "BRSR",
+    "name": "Business Responsibility and Sustainability Reporting",
+    "description": "India's sustainability reporting framework",
+    "logoUrl": "/framework-logos/brsr-logo.png",
+    "questions": [],
+    "detailedQuestions": [
+      {
+        "_id": "brsr-question-1",
+        "category": "General Disclosures",
+        "question": "Provide details of the highest authority responsible for implementation and oversight of the Business Responsibility policy(ies)",
+        "mandatory": "M",
+        "answerType": "TextBox",
+        "tags": ["governance", "responsibility", "policy"]
+      },
+      {
+        "_id": "brsr-question-2",
+        "category": "General Disclosures",
+        "question": "Does the entity have specified programs/initiatives/projects in pursuit of the policy related to Principle 1? (Y/N) If yes, details thereof",
+        "mandatory": "M",
+        "answerType": "YesNoText",
+        "tags": ["programs", "initiatives", "ethics"]
+      }
+    ],
+    "questionsMenu": [
+      "General Disclosures",
+      "Management and Process",
+      "Principle 1 - Ethics & Transparency",
+      "Principle 2 - Safe Products & Services",
+      "Principle 3 - Employee Wellbeing",
+      "Principle 4 - Stakeholder Engagement",
+      "Principle 5 - Human Rights",
+      "Principle 6 - Environment",
+      "Principle 7 - Public Policy Advocacy",
+      "Principle 8 - Inclusive Growth",
+      "Principle 9 - Customer Value"
+    ]
+  },
+  {
+    "_id": "IFC",
+    "name": "International Finance Corporation",
+    "description": "World Bank Group's sustainability framework",
+    "logoUrl": "/framework-logos/ifc-logo.png",
+    "questions": [],
+    "detailedQuestions": [
+      {
+        "_id": "ifc-question-1",
+        "category": "Performance Standards",
+        "question": "How does your organization assess and manage environmental and social risks and impacts in line with IFC Performance Standards?",
+        "mandatory": "M",
+        "answerType": "TextArea",
+        "tags": ["risk assessment", "performance standards", "management system"]
+      },
+      {
+        "_id": "ifc-question-2",
+        "category": "Performance Standards",
+        "question": "Describe the organization's policies and procedures related to labor and working conditions (PS2)",
+        "mandatory": "M",
+        "answerType": "TextArea",
+        "tags": ["labor", "working conditions", "human resources"]
+      }
+    ],
+    "questionsMenu": [
+      "PS1: Assessment and Management",
+      "PS2: Labor and Working Conditions",
+      "PS3: Resource Efficiency",
+      "PS4: Community Health and Safety",
+      "PS5: Land Acquisition",
+      "PS6: Biodiversity Conservation",
+      "PS7: Indigenous Peoples",
+      "PS8: Cultural Heritage"
+    ]
+  }
+]
