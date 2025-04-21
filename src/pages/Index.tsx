@@ -6,7 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
-import { Loader2, RefreshCw } from "lucide-react";
+import { Loader2, RefreshCw, FileText, Info } from "lucide-react";
+import { generateQuestions } from '../api/questionsApi';
 
 interface Framework {
   _id: string;
@@ -69,32 +70,21 @@ const Index = () => {
     setJsonResult("");
 
     try {
-      const response = await fetch('/api/questions/generate', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          frameworkId: selectedFramework,
-          focusAreas,
-          numQuestions,
-        }),
-      });
-
-      const data = await response.json();
+      // Use our new API function directly
+      const result = await generateQuestions(
+        selectedFramework,
+        focusAreas,
+        numQuestions
+      );
       
       // Display full JSON for debugging
-      setJsonResult(JSON.stringify(data, null, 2));
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to generate questions');
-      }
-
-      setQuestions(data.questions || []);
+      setJsonResult(JSON.stringify(result, null, 2));
+      
+      setQuestions(result.questions || []);
       
       toast({
         title: "Success",
-        description: `Generated ${data.questions.length} questions from ${data.framework.name}`,
+        description: `Generated ${result.questions.length} questions from ${result.framework.name}`,
       });
     } catch (error) {
       setError(error instanceof Error ? error.message : 'Unknown error');
