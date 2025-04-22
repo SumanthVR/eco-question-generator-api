@@ -2,8 +2,8 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Loader2, RefreshCw } from "lucide-react";
+import { Check, Loader2, RefreshCw, SquareCheck } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
 
 interface Framework {
   _id: string;
@@ -15,8 +15,8 @@ interface Framework {
 interface QuestionFormProps {
   frameworks: Framework[];
   isLoadingFrameworks: boolean;
-  selectedFramework: string;
-  setSelectedFramework: (id: string) => void;
+  selectedFramework: string[];
+  setSelectedFramework: (ids: string[]) => void;
   numQuestions: number;
   setNumQuestions: (val: number) => void;
   focusAreas: string;
@@ -37,37 +37,48 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
   onGenerate,
   isLoading
 }) => {
+  const handleFrameworkToggle = (frameworkId: string) => {
+    if (selectedFramework.includes(frameworkId)) {
+      setSelectedFramework(selectedFramework.filter(id => id !== frameworkId));
+    } else {
+      setSelectedFramework([...selectedFramework, frameworkId]);
+    }
+  };
+
   return (
     <div className="space-y-4">
       <h2 className="text-xl font-semibold mb-4">Generate Questions</h2>
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium mb-1">Sustainability Framework</label>
+          <label className="block text-sm font-medium mb-2">Sustainability Frameworks</label>
           {isLoadingFrameworks ? (
             <div className="flex items-center space-x-2">
               <Loader2 className="h-4 w-4 animate-spin" />
               <span>Loading frameworks...</span>
             </div>
           ) : (
-            <Select 
-              value={selectedFramework} 
-              onValueChange={setSelectedFramework}
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Choose a framework" />
-              </SelectTrigger>
-              <SelectContent>
-                {frameworks.map((framework) => (
-                  <SelectItem key={framework._id} value={framework._id}>
+            <div className="space-y-2">
+              {frameworks.map((framework) => (
+                <div key={framework._id} className="flex items-center space-x-2">
+                  <Checkbox
+                    id={framework._id}
+                    checked={selectedFramework.includes(framework._id)}
+                    onCheckedChange={() => handleFrameworkToggle(framework._id)}
+                  />
+                  <label
+                    htmlFor={framework._id}
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
                     {framework.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+                  </label>
+                </div>
+              ))}
+            </div>
           )}
         </div>
+        
         <div>
-          <label className="block text-sm font-medium mb-1">Number of Questions</label>
+          <label className="block text-sm font-medium mb-1">Questions per Framework</label>
           <Input
             type="number"
             placeholder="Number of Questions"
@@ -77,6 +88,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             max={10}
           />
         </div>
+
         <div>
           <label className="block text-sm font-medium mb-1">Focus Areas (optional)</label>
           <Input
@@ -88,9 +100,10 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             Comma-separated topics to filter questions (e.g., "climate, water, diversity")
           </p>
         </div>
+
         <Button 
           onClick={onGenerate}
-          disabled={isLoading || !selectedFramework}
+          disabled={isLoading || selectedFramework.length === 0}
           className="w-full"
         >
           {isLoading ? (

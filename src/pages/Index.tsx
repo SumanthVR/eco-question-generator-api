@@ -16,7 +16,7 @@ interface Framework {
 
 const Index = () => {
   const [frameworks, setFrameworks] = useState<Framework[]>([]);
-  const [selectedFramework, setSelectedFramework] = useState<string>("");
+  const [selectedFramework, setSelectedFramework] = useState<string[]>([]);
   const [focusAreas, setFocusAreas] = useState<string>("");
   const [numQuestions, setNumQuestions] = useState<number>(3);
   const [questions, setQuestions] = useState<any[]>([]);
@@ -51,10 +51,10 @@ const Index = () => {
   }, []);
 
   const fetchQuestions = async () => {
-    if (!selectedFramework) {
+    if (selectedFramework.length === 0) {
       toast({
         title: "Error",
-        description: "Please select a framework first",
+        description: "Please select at least one framework",
         variant: "destructive",
       });
       return;
@@ -66,16 +66,28 @@ const Index = () => {
     setJsonResult("");
 
     try {
-      const result = await generateQuestions(
-        selectedFramework,
-        focusAreas,
-        numQuestions
-      );
-      setJsonResult(JSON.stringify(result, null, 2));
-      setQuestions(result.questions || []);
+      let allQuestions: any[] = [];
+      let allResults: any = { questions: [] };
+
+      for (const frameworkId of selectedFramework) {
+        const result = await generateQuestions(
+          frameworkId,
+          focusAreas,
+          numQuestions
+        );
+        allQuestions = [...allQuestions, ...result.questions];
+        allResults = {
+          ...result,
+          questions: allQuestions,
+        };
+      }
+
+      setJsonResult(JSON.stringify(allResults, null, 2));
+      setQuestions(allQuestions);
+      
       toast({
         title: "Success",
-        description: `Generated ${result.questions.length} questions from ${result.framework.name}`,
+        description: `Generated ${allQuestions.length} questions from ${selectedFramework.length} frameworks`,
       });
     } catch (error) {
       setError(error instanceof Error ? error.message : "Unknown error");
@@ -112,7 +124,7 @@ const Index = () => {
               />
             </Card>
             <FrameworkInfo 
-              selectedFramework={selectedFramework}
+              selectedFramework={selectedFramework[0]}
               frameworks={frameworks}
             />
           </div>
