@@ -2,7 +2,7 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { FileExport } from "lucide-react";
+import { FileText } from "lucide-react";
 
 interface Question {
   _id?: string;
@@ -58,7 +58,7 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({
               className="gap-1"
               title="Export questions as JSON"
             >
-              <FileExport className="w-4 h-4 mr-1" />
+              <FileText className="w-4 h-4 mr-1" />
               Export as JSON
             </Button>
           </div>
@@ -105,4 +105,3 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({
 };
 
 export default ResultsDisplay;
-
