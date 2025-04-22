@@ -67,22 +67,33 @@ const Index = () => {
 
     try {
       let allQuestions: any[] = [];
-      let allResults: any = { questions: [] };
+      let frameworkResults: any[] = [];
 
+      // Process each selected framework
       for (const frameworkId of selectedFramework) {
         const result = await generateQuestions(
           frameworkId,
           focusAreas,
           numQuestions
         );
+        
+        // Add the current framework's questions to the combined list
         allQuestions = [...allQuestions, ...result.questions];
-        allResults = {
-          ...result,
-          questions: allQuestions,
-        };
+        
+        // Store the complete result for this framework
+        frameworkResults.push(result);
       }
 
-      setJsonResult(JSON.stringify(allResults, null, 2));
+      // Create a combined result object
+      const combinedResult = {
+        success: true,
+        questions: allQuestions,
+        frameworkResults: frameworkResults,
+        totalFrameworks: selectedFramework.length,
+        totalQuestions: allQuestions.length
+      };
+
+      setJsonResult(JSON.stringify(combinedResult, null, 2));
       setQuestions(allQuestions);
       
       toast({
@@ -123,10 +134,12 @@ const Index = () => {
                 isLoading={isLoading}
               />
             </Card>
-            <FrameworkInfo 
-              selectedFramework={selectedFramework[0]}
-              frameworks={frameworks}
-            />
+            {selectedFramework.length > 0 && (
+              <FrameworkInfo 
+                selectedFramework={selectedFramework}
+                frameworks={frameworks}
+              />
+            )}
           </div>
           {/* Right column */}
           <div className="space-y-4">
