@@ -5,248 +5,201 @@
     "name": "Global Reporting Initiative",
     "description": "The GRI Standards are the world's most widely used standards for sustainability reporting",
     "logoUrl": "/framework-logos/gri-logo.png",
-    "questions": [
-      {
-        "_id": "gri-question-1",
-        "question": "Does your company currently use the GRI Standards for sustainability reporting?",
-        "tags": ["reporting", "standards", "disclosure"],
-        "answerType": "YesNo"
-      }
-    ],
-    "detailedQuestions": [
-      {
-        "_id": "49223354-ca49-4ff8-b7ee-7f1fa80d4b99",
-        "category": "Organizational details",
-        "question": "Report your organization's legal name",
-        "labelGuidance": "Provide the full legal name of your organization as registered",
-        "mandatory": "M",
-        "answerType": "TextBox",
-        "tags": ["organization", "profile", "identity"]
-      },
-      {
-        "_id": "5cef9a4f-0781-481e-a559-5422e1ffcc6f",
-        "category": "Organizational details",
-        "question": "Report your organization's nature of ownership and legal form",
-        "labelGuidance": "Examples: privately owned, publicly listed, non-profit, etc.",
-        "mandatory": "M",
-        "answerType": "TextBox",
-        "tags": ["ownership", "legal", "structure"]
-      },
-      {
-        "_id": "61a553e9-34ce-453e-bfe5-fe7decf811fb",
-        "category": "Organizational details",
-        "question": "Report the location of your organization's headquarters",
-        "labelGuidance": "Provide the city and country of your headquarters",
-        "mandatory": "M",
-        "answerType": "TextBox",
-        "tags": ["location", "headquarters", "geography"]
-      },
-      {
-        "_id": "b90b54fb-b27d-47cf-9305-dd2257c1ab72",
-        "category": "Organizational details",
-        "question": "Report your organization's countries of operation",
-        "labelGuidance": "List all countries where you have significant operations",
-        "mandatory": "M",
-        "answerType": "TextBox",
-        "tags": ["countries", "operations", "global"]
-      },
-      {
-        "_id": "37a17670-8e0b-423b-9c0f-69be8d78c5f7",
-        "category": "Entities included in the organization's sustainability reporting",
-        "question": "List all entities included in your sustainability reporting",
-        "labelGuidance": "Include all subsidiaries, joint ventures, etc. covered in your reporting",
-        "mandatory": "M",
-        "answerType": "TextBox",
-        "tags": ["entities", "reporting scope", "coverage"]
-      }
-    ],
-    "questionsMenu": [
-      "Organizational details",
-      "Entities included in reporting",
-      "Reporting period and frequency",
-      "Contact information",
-      "Materiality assessment"
-    ]
-  },
-  {
-    "_id": "TCFD",
-    "name": "Task Force on Climate-Related Financial Disclosures",
-    "description": "Framework for climate-related financial risk disclosures",
-    "logoUrl": "/framework-logos/tcfd-logo.png",
     "questions": [],
     "detailedQuestions": [
       {
-        "_id": "tcfd-question-1",
-        "category": "Governance",
-        "question": "Describe the board's oversight of climate-related risks and opportunities",
+        "_id": "c3f7ed06-c2f1-4336-99dc-dc01131fc1ca",
+        "category": "List of material topics",
+        "question": "b. report changes to the list of material topics compared to the previous reporting period.",
+        "labelGuidance": "",
         "mandatory": "M",
-        "answerType": "TextArea",
-        "tags": ["governance", "board oversight", "climate risk"]
+        "answerType": "TextBox"
       },
       {
-        "_id": "tcfd-question-2",
-        "category": "Governance",
-        "question": "Describe management's role in assessing and managing climate-related risks and opportunities",
+        "_id": "f415f4fb-fef0-4511-a32a-b9e7d500c2fc",
+        "category": "Management of material topics",
+        "question": "a. describe the actual and potential, negative and positive impacts on the economy, environment, and people, including impacts on their human rights;",
+        "labelGuidance": "",
         "mandatory": "M",
-        "answerType": "TextArea",
-        "tags": ["governance", "management", "climate risk"]
+        "answerType": "TextBox"
       },
       {
-        "_id": "tcfd-question-3",
-        "category": "Strategy",
-        "question": "Describe the climate-related risks and opportunities the organization has identified over the short, medium, and long term",
+        "_id": "a9d7e431-583a-4e92-b8c2-fe841edc333d",
+        "category": "Management of material topics",
+        "question": "b. report whether the organization is involved with the negative impacts through its activities or as a result of its business relationships, and describe the activities or business relationships;",
+        "labelGuidance": "",
         "mandatory": "M",
-        "answerType": "TextArea",
-        "tags": ["strategy", "risks", "opportunities"]
+        "answerType": "TextBox"
       },
       {
-        "_id": "tcfd-question-4",
-        "category": "Strategy",
-        "question": "Describe the impact of climate-related risks and opportunities on the organization's businesses, strategy, and financial planning",
+        "_id": "60f3e21c-b10a-4d86-ab9a-6fef4b124a11",
+        "category": "Management of material topics",
+        "question": "c. describe its policies or commitments regarding the material topic;",
+        "labelGuidance": "",
         "mandatory": "M",
-        "answerType": "TextArea",
-        "tags": ["strategy", "impact", "financial planning"]
+        "answerType": "TextBox"
       },
       {
-        "_id": "tcfd-question-5",
-        "category": "Strategy",
-        "question": "Describe the resilience of the organization's strategy, taking into consideration different climate-related scenarios, including a 2°C or lower scenario",
+        "_id": "5fa4ef43-370b-4fa3-bacd-c43ef1a06a5d",
+        "category": "Management of material topics",
+        "question": "d. describe actions taken to manage the topic and related impacts, including:",
+        "labelGuidance": "",
         "mandatory": "M",
-        "answerType": "TextArea",
-        "tags": ["strategy", "resilience", "scenarios"]
+        "answerType": "static<3-3-d>",
+        "ref": "3-3-d",
+        "children": [
+          {
+            "_id": "95f45d2f-6b7e-4aba-a761-0c60db656523",
+            "ref": "3-3-d",
+            "question": "i. actions to prevent or mitigate potential negative impacts;",
+            "mandatory": "M",
+            "answerType": "TextBox",
+            "group": "Management of material topics"
+          },
+          {
+            "_id": "abd6fcd4-1577-42e7-82a4-ba7b4177f8bb",
+            "ref": "3-3-d",
+            "question": "ii. actions to address actual negative impacts, including actions to provide for or cooperate in their remediation;",
+            "mandatory": "M",
+            "answerType": "TextBox",
+            "group": "Management of material topics"
+          },
+          {
+            "_id": "45a15dcd-b2a9-434d-9c6b-96261fab026b",
+            "ref": "3-3-d",
+            "question": "iii. actions to manage actual and potential positive impacts;",
+            "mandatory": "M",
+            "answerType": "TextBox",
+            "group": "Management of material topics"
+          }
+        ]
+      },
+      {
+        "_id": "94b6f755-02a0-43f4-9c55-276dcaec54ed",
+        "category": "Management of material topics",
+        "question": "e. report the following information about tracking the effectiveness of the actions taken:",
+        "labelGuidance": "",
+        "mandatory": "M",
+        "answerType": "static<3-3-e>",
+        "ref": "3-3-e",
+        "children": [
+          {
+            "_id": "a782a68f-07f6-44f2-a63e-c6645b5e40bf",
+            "ref": "3-3-e",
+            "question": "i. processes used to track the effectiveness of the actions;",
+            "mandatory": "M",
+            "answerType": "TextBox",
+            "group": "Management of material topics"
+          },
+          {
+            "_id": "1b9d8db1-032b-415c-98ab-87a19f4cfd6e",
+            "ref": "3-3-e",
+            "question": "ii. goals, targets, and indicators used to evaluate progress;",
+            "mandatory": "M",
+            "answerType": "TextBox",
+            "group": "Management of material topics"
+          },
+          {
+            "_id": "d6eeb53d-07f9-48bd-b8f2-8a9316a1b3da",
+            "ref": "3-3-e",
+            "question": "iii. the effectiveness of the actions, including progress toward the goals and targets;",
+            "mandatory": "M",
+            "answerType": "TextBox",
+            "group": "Management of material topics"
+          },
+          {
+            "_id": "7b6d1ee2-ab13-4889-9282-5ba40898a62a",
+            "ref": "3-3-e",
+            "question": "iv. lessons learned and how these have been incorporated into the organization's operational policies and procedures;",
+            "mandatory": "M",
+            "answerType": "TextBox",
+            "group": "Management of material topics"
+          }
+        ]
+      },
+      {
+        "_id": "3af71235-9c47-45bf-9c0c-a69a85449b1a",
+        "category": "Management of material topics",
+        "question": "f.describe how engagement with stakeholders has informed the actions taken (3-3-d) and how it has informed whether the actions have been effective (3-3-e).",
+        "labelGuidance": "",
+        "mandatory": "M",
+        "answerType": "TextBox"
+      },
+      {
+        "_id": "c329f3ac-b069-4d74-b376-a086de34066c",
+        "category": "Materials used by weight or volume",
+        "question": "a. Total weight or volume of materials that are used to produce and package the organizations's primary products and services during the reporting period, by:",
+        "labelGuidance": "",
+        "mandatory": "O",
+        "answerType": "static<301-1>",
+        "ref": "301-1",
+        "children": [
+          {
+            "_id": "4128282b-e8ad-4964-a3c0-8e42306838bd",
+            "ref": "301-1",
+            "question": "i. non-renewable materials used",
+            "mandatory": "M",
+            "answerType": "Number",
+            "group": "Materials used by weight or volume"
+          },
+          {
+            "_id": "1cb57d12-2c73-4d3f-a61a-c96838eb58f8",
+            "ref": "301-1",
+            "question": "ii. renewable materials used",
+            "mandatory": "M",
+            "answerType": "Number",
+            "group": "Materials used by weight or volume"
+          }
+        ]
+      },
+      {
+        "_id": "3d8db53b-9dc1-4ac7-a618-9eedb6968e98",
+        "category": "Recycled input materials used",
+        "question": "a. Percentage of recycled input materials used to manufacture used to manufacture the organisations primary products and services",
+        "labelGuidance": "",
+        "mandatory": "M",
+        "answerType": "Number"
+      },
+      {
+        "_id": "636d1310-4f12-4919-a922-81fe3daf28e6",
+        "category": "Reclaimed products and their packaging",
+        "question": "a. Percentage of reclaimed products and their packaging materials for each product category.",
+        "labelGuidance": "",
+        "mandatory": "M",
+        "answerType": "Number"
+      },
+      {
+        "_id": "bafab5c2-b079-4b2d-b9be-49c55dc3fcc0",
+        "category": "Reclaimed products and their packaging",
+        "question": "b. How the data for this disclosure have been collected.",
+        "labelGuidance": "",
+        "mandatory": "M",
+        "answerType": "TextBox"
+      },
+      {
+        "_id": "5d2f889b-2656-4cb2-9b1f-af60a6dadf53",
+        "category": "Energy consumption within the organization",
+        "question": "a. Total fuel consumption within the organization from non-renewable sources, in joules or multiples, and including fuel types used.",
+        "labelGuidance": "",
+        "mandatory": "M",
+        "answerType": "Number"
+      },
+      {
+        "_id": "28ffe413-42bc-4089-b4ff-68cbfc6e9d69",
+        "category": "Energy consumption within the organization",
+        "question": "b.Total fuel consumption within the organization from renewable sources, in joules or multiples, and including fuel types used.",
+        "labelGuidance": "",
+        "mandatory": "M",
+        "answerType": "Number"
       }
     ],
     "questionsMenu": [
-      "Board Oversight",
-      "Management's Role",
-      "Risks & Opportunities",
-      "Impact on Business & Planning",
-      "Strategy Resilience",
-      "Risk Identification",
-      "Risk Mitigation",
-      "Risk Integration",
-      "Metrics Used",
-      "GHG Emissions",
-      "Targets Set"
-    ]
-  },
-  {
-    "_id": "CSRD",
-    "name": "Corporate Sustainability Reporting Directive",
-    "description": "EU framework for corporate sustainability reporting",
-    "logoUrl": "/framework-logos/csrd-logo.png",
-    "questions": [],
-    "detailedQuestions": [
-      {
-        "_id": "csrd-question-1",
-        "category": "Environmental",
-        "question": "Describe your organization's environmental policies and actions to prevent, mitigate or remediate adverse impacts",
-        "mandatory": "M",
-        "answerType": "TextArea",
-        "tags": ["environmental", "policies", "impact mitigation"]
-      },
-      {
-        "_id": "csrd-question-2",
-        "category": "Environmental",
-        "question": "Describe your organization's targets related to environmental matters and progress against those targets",
-        "mandatory": "M",
-        "answerType": "TextArea",
-        "tags": ["environmental", "targets", "progress"]
-      },
-      {
-        "_id": "csrd-question-3",
-        "category": "Social",
-        "question": "Describe your organization's policies and actions related to social matters, including employee engagement and working conditions",
-        "mandatory": "M",
-        "answerType": "TextArea",
-        "tags": ["social", "employees", "working conditions"]
-      }
-    ],
-    "questionsMenu": [
-      "Environmental Policies",
-      "Climate Change Mitigation",
-      "Climate Change Adaptation",
-      "Resource Use",
-      "Circular Economy",
-      "Pollution",
-      "Biodiversity",
-      "Social Matters",
-      "Human Rights",
-      "Anti-corruption",
-      "Governance"
-    ]
-  },
-  {
-    "_id": "BRSR",
-    "name": "Business Responsibility and Sustainability Reporting",
-    "description": "India's sustainability reporting framework",
-    "logoUrl": "/framework-logos/brsr-logo.png",
-    "questions": [],
-    "detailedQuestions": [
-      {
-        "_id": "brsr-question-1",
-        "category": "General Disclosures",
-        "question": "Provide details of the highest authority responsible for implementation and oversight of the Business Responsibility policy(ies)",
-        "mandatory": "M",
-        "answerType": "TextBox",
-        "tags": ["governance", "responsibility", "policy"]
-      },
-      {
-        "_id": "brsr-question-2",
-        "category": "General Disclosures",
-        "question": "Does the entity have specified programs/initiatives/projects in pursuit of the policy related to Principle 1? (Y/N) If yes, details thereof",
-        "mandatory": "M",
-        "answerType": "YesNoText",
-        "tags": ["programs", "initiatives", "ethics"]
-      }
-    ],
-    "questionsMenu": [
-      "General Disclosures",
-      "Management and Process",
-      "Principle 1 - Ethics & Transparency",
-      "Principle 2 - Safe Products & Services",
-      "Principle 3 - Employee Wellbeing",
-      "Principle 4 - Stakeholder Engagement",
-      "Principle 5 - Human Rights",
-      "Principle 6 - Environment",
-      "Principle 7 - Public Policy Advocacy",
-      "Principle 8 - Inclusive Growth",
-      "Principle 9 - Customer Value"
-    ]
-  },
-  {
-    "_id": "IFC",
-    "name": "International Finance Corporation",
-    "description": "World Bank Group's sustainability framework",
-    "logoUrl": "/framework-logos/ifc-logo.png",
-    "questions": [],
-    "detailedQuestions": [
-      {
-        "_id": "ifc-question-1",
-        "category": "Performance Standards",
-        "question": "How does your organization assess and manage environmental and social risks and impacts in line with IFC Performance Standards?",
-        "mandatory": "M",
-        "answerType": "TextArea",
-        "tags": ["risk assessment", "performance standards", "management system"]
-      },
-      {
-        "_id": "ifc-question-2",
-        "category": "Performance Standards",
-        "question": "Describe the organization's policies and procedures related to labor and working conditions (PS2)",
-        "mandatory": "M",
-        "answerType": "TextArea",
-        "tags": ["labor", "working conditions", "human resources"]
-      }
-    ],
-    "questionsMenu": [
-      "PS1: Assessment and Management",
-      "PS2: Labor and Working Conditions",
-      "PS3: Resource Efficiency",
-      "PS4: Community Health and Safety",
-      "PS5: Land Acquisition",
-      "PS6: Biodiversity Conservation",
-      "PS7: Indigenous Peoples",
-      "PS8: Cultural Heritage"
+      "List of material topics",
+      "Management of material topics",
+      "Materials used by weight or volume",
+      "Recycled input materials used",
+      "Reclaimed products and their packaging",
+      "Energy consumption within the organization"
     ]
   }
 ]

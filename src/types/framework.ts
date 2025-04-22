@@ -6,13 +6,8 @@ export interface Question {
   labelGuidance?: string;
   mandatory?: string;
   answerType?: string;
-  answerSeed?: string;
-  minValue?: string;
-  maxValue?: string;
-  group?: string;
   ref?: string;
-  tags?: string[];
-  text?: string;
+  group?: string;
   children?: Question[];
 }
 
@@ -24,5 +19,4 @@ export interface Framework {
   questions: Question[];
   detailedQuestions: Question[];
   questionsMenu?: string[];
-  sidebar?: any[];
 }
