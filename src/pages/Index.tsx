@@ -7,11 +7,27 @@ import ResultsDisplay from "../components/ResultsDisplay";
 import FrameworkInfo from "../components/FrameworkInfo";
 import { Card } from "@/components/ui/card";
 
+interface Question {
+  _id: string;
+  category?: string;
+  question: string;
+  labelGuidance?: string;
+  mandatory?: string;
+  answerType?: string;
+  ref?: string;
+  group?: string;
+  children?: Question[];
+  tags?: string[];
+  text?: string;
+}
+
 interface Framework {
   _id: string;
   name: string;
   description?: string;
   logoUrl?: string;
+  questions?: Question[];
+  detailedQuestions?: Question[];
 }
 
 const Index = () => {
@@ -19,12 +35,17 @@ const Index = () => {
   const [selectedFramework, setSelectedFramework] = useState<string[]>([]);
   const [focusAreas, setFocusAreas] = useState<string>("");
   const [numQuestions, setNumQuestions] = useState<number>(3);
-  const [questions, setQuestions] = useState<any[]>([]);
+
+  // To hold the original questions (per frameworks)
+  const [originalQuestions, setOriginalQuestions] = useState<Question[]>([]);
+  // To hold the generated questions
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isLoadingFrameworks, setIsLoadingFrameworks] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [jsonResult, setJsonResult] = useState<string>("");
 
+  // Fetches all frameworks on mount
   useEffect(() => {
     const fetchFrameworks = async () => {
       try {
@@ -50,6 +71,22 @@ const Index = () => {
     fetchFrameworks();
   }, []);
 
+  // Whenever selected frameworks change, update the originalQuestions list
+  useEffect(() => {
+    if (!frameworks.length) return;
+    const originals: Question[] = [];
+    for (const id of selectedFramework) {
+      const fw = frameworks.find(f => f._id === id);
+      if (fw) {
+        const qs = fw.detailedQuestions?.length
+          ? fw.detailedQuestions
+          : fw.questions || [];
+        originals.push(...qs);
+      }
+    }
+    setOriginalQuestions(originals);
+  }, [selectedFramework, frameworks]);
+
   const fetchQuestions = async () => {
     if (selectedFramework.length === 0) {
       toast({
@@ -66,25 +103,19 @@ const Index = () => {
     setJsonResult("");
 
     try {
-      let allQuestions: any[] = [];
+      let allQuestions: Question[] = [];
       let frameworkResults: any[] = [];
 
-      // Process each selected framework
       for (const frameworkId of selectedFramework) {
         const result = await generateQuestions(
           frameworkId,
           focusAreas,
           numQuestions
         );
-        
-        // Add the current framework's questions to the combined list
         allQuestions = [...allQuestions, ...result.questions];
-        
-        // Store the complete result for this framework
         frameworkResults.push(result);
       }
 
-      // Create a combined result object
       const combinedResult = {
         success: true,
         questions: allQuestions,
@@ -95,7 +126,7 @@ const Index = () => {
 
       setJsonResult(JSON.stringify(combinedResult, null, 2));
       setQuestions(allQuestions);
-      
+
       toast({
         title: "Success",
         description: `Generated ${allQuestions.length} questions from ${selectedFramework.length} frameworks`,
@@ -115,7 +146,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen p-6 bg-gray-50">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-center">Sustainability Questions API</h1>
         <div className="grid md:grid-cols-2 gap-6">
           {/* Left column */}
@@ -141,11 +172,12 @@ const Index = () => {
               />
             )}
           </div>
-          {/* Right column */}
+          {/* Right column - side by side lists */}
           <div className="space-y-4">
             <ResultsDisplay
               error={error}
               questions={questions}
+              originalQuestions={originalQuestions}
               jsonResult={jsonResult}
               isLoading={isLoading}
             />
