@@ -9,6 +9,8 @@ export interface Question {
   ref?: string;
   group?: string;
   children?: Question[];
+  tags?: string[]; // Add tags field which was missing
+  text?: string;   // Add text field which was missing
 }
 
 export interface Framework {
@@ -19,4 +21,5 @@ export interface Framework {
   questions: Question[];
   detailedQuestions: Question[];
   questionsMenu?: string[];
+  sidebar?: any[]; // Add sidebar field which was missing
 }
